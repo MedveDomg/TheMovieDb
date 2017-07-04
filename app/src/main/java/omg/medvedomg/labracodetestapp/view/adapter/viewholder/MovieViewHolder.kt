@@ -3,11 +3,22 @@ package omg.medvedomg.labracodetestapp.view.adapter.viewholder
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.movie_item.view.*
 import omg.medvedomg.labracodetestapp.R
+import omg.medvedomg.labracodetestapp.model.data.Movie
 import omg.medvedomg.labracodetestapp.other.inflate
+import omg.medvedomg.labracodetestapp.other.loadImg
 
 /**
  * Created by medvedomg on 04.07.17.
  */
 class MovieViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.movie_item)) {
+    fun bind(item: Movie) = with(itemView) {
+        tvTitle.text = item.title
+        tvScore.text = item.voteAverage.toString()
+        ivPoster.loadImg(item.posterPath.toString())
+        tvYear.text = item.release_date
+        tvDescription.text = item.overview
+        tvMoreInfo.setOnClickListener(View.OnClickListener { println("click") })
+    }
 }

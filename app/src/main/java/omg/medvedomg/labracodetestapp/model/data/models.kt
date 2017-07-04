@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * Created by medvedomg on 04.07.17.
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-class ListOfPopularMoviesResponse(
+data class ListOfPopularMoviesResponse(
         @JsonProperty("page")
         val page: Int?,
         @JsonProperty("total_results")
@@ -19,7 +19,7 @@ class ListOfPopularMoviesResponse(
 )
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-class Movie(
+data class Movie(
         @JsonProperty("vote_count")
         val voteCount: Int?,
         @JsonProperty("id")

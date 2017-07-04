@@ -1,18 +1,25 @@
-package omg.medvedomg.labracodetestapp.view
+package omg.medvedomg.labracodetestapp.view.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_list_of_movies.*
 import omg.medvedomg.labracodetestapp.R
+import omg.medvedomg.labracodetestapp.model.ApiCommunicateManager
+import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.other.network.Api
+import omg.medvedomg.labracodetestapp.other.network.NetworkUtil
 import omg.medvedomg.labracodetestapp.presenter.ListOfMoviesPresenter
 import omg.medvedomg.labracodetestapp.view.adapter.ListOfMoviesAdapter
 import omg.medvedomg.labracodetestapp.view.viewInterface.ListOfMoviesView
 
 class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
 
-    private val presenter by lazy { ListOfMoviesPresenter(this)}
+
+    private val api = NetworkUtil.api
+
+    private val presenter by lazy { ListOfMoviesPresenter(this, api)}
+    private val adapterMovies by lazy { ListOfMoviesAdapter()}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,18 +29,17 @@ class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
             setHasFixedSize(true)
             val linearLayoutManager = LinearLayoutManager(context)
             layoutManager = linearLayoutManager
-            rvListOfMovies.adapter = ListOfMoviesAdapter()
+            rvListOfMovies.adapter = adapterMovies
         }
 
+        presenter.getListOfMovies()
 
-    }
-
-    override fun setMovies() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun startMovieDetailsActivity() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun setMovies(movies: List<Movie>) {
+        adapterMovies.loadMovies(movies)
+    }
 }
