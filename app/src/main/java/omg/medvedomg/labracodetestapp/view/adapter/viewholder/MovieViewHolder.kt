@@ -19,6 +19,7 @@ class MovieViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflat
         tvScore.text = item.voteAverage.toString()
         ivPoster.loadImg(item.posterPath.toString())
         tvYear.text = DateParserUtil.parseDate(item.release_date)
+        tvCategories.text = item.categories
         tvDescription.text = item.overview
         tvMoreInfo.setOnClickListener(View.OnClickListener { println("click") })
     }

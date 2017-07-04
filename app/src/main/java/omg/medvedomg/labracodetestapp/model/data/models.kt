@@ -1,51 +1,69 @@
 package omg.medvedomg.labracodetestapp.model.data
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
+//import com.fasterxml.jackson.annotation.JsonIgnore
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+//import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by medvedomg on 04.07.17.
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
+//@JsonIgnoreProperties(ignoreUnknown=true)
 data class ListOfPopularMoviesResponse(
-        @JsonProperty("page")
+        @SerializedName("page")
         val page: Int?,
-        @JsonProperty("total_results")
+        @SerializedName("total_results")
         val totalResults: Int?,
-        @JsonProperty("total_pages")
+        @SerializedName("total_pages")
         val totalPages: Int?,
-        @JsonProperty("results")
-        val movies: List<Movie>
+        @SerializedName("results")
+        var movies: List<Movie>
 )
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+//@JsonIgnoreProperties(ignoreUnknown=true)
 data class Movie(
-        @JsonProperty("vote_count")
+        @SerializedName("vote_count")
         val voteCount: Int?,
-        @JsonProperty("id")
+        @SerializedName("id")
         val id: Int?,
-        @JsonProperty("video")
+        @SerializedName("video")
         val video: Boolean?,
-        @JsonProperty("vote_average")
+        @SerializedName("vote_average")
         val voteAverage: Double?,
-        @JsonProperty("title")
+        @SerializedName("title")
         val title: String?,
-        @JsonProperty("popularity")
+        @SerializedName("popularity")
         val popularity: Double?,
-        @JsonProperty("poster_path")
+        @SerializedName("poster_path")
         val posterPath: String?,
-        @JsonProperty("original_language")
+        @SerializedName("original_language")
         val originalLanguage: String?,
-        @JsonProperty("original_title")
+        @SerializedName("original_title")
         val originalTitle: String?,
-        @JsonProperty("genre_ids")
+        @SerializedName("genre_ids")
         val genreIds: List<Int>,
-        @JsonProperty("backdrop_path")
+        @SerializedName("backdrop_path")
         val backdropPath: String?,
-        @JsonProperty("adult")
+        @SerializedName("adult")
         val adult: Boolean?,
-        @JsonProperty("overview")
+        @SerializedName("overview")
         val overview: String?,
-        @JsonProperty("release_date")
-        val release_date: String?
+        @SerializedName("release_date")
+        val release_date: String?,
+//        @SerializedName("release_date")
+        var categories: String?
+)
+
+//@JsonIgnoreProperties(ignoreUnknown=true)
+data class CategoriesOfMoviesResponse(
+        @SerializedName("genres")
+        var categories: List<Category>
+)
+
+//@JsonIgnoreProperties(ignoreUnknown=true)
+data class Category(
+        @SerializedName("id")
+        val id: Int?,
+        @SerializedName("name")
+        val name: String?
 )

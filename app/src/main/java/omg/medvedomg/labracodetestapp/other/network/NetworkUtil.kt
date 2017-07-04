@@ -8,7 +8,8 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.jackson.JacksonConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+//import retrofit2.converter.jackson.JacksonConverterFactory
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -21,7 +22,7 @@ class NetworkUtil {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://api.themoviedb.org/3/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
         val api = retrofit.create(Api::class.java)
