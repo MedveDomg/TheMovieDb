@@ -17,8 +17,14 @@ fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View {
 
 fun ImageView.loadImg(imageUrl: String) {
     if (TextUtils.isEmpty(imageUrl)) {
-        Picasso.with(context).load(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(this)
+        Picasso.with(context)
+                .load(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .into(this)
     } else {
-        Picasso.with(context).load(imageUrl).error(R.mipmap.ic_launcher).into(this)
+        Picasso.with(context)
+                .load(resources.getString(R.string.image_server_domain).plus(imageUrl))
+                .fit()
+                .error(R.mipmap.ic_launcher).into(this)
     }
 }

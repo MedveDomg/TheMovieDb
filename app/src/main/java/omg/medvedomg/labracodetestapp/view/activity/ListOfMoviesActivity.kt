@@ -33,10 +33,11 @@ class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
         }
 
         presenter.getListOfMovies()
-
+        
     }
 
     override fun startMovieDetailsActivity() {
+
     }
 
     override fun setMovies(movies: List<Movie>) {
