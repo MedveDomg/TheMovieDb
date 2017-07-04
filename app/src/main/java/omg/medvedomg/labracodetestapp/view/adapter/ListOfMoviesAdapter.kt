@@ -33,7 +33,7 @@ class ListOfMoviesAdapter(val activity: ListOfMoviesActivity) : RecyclerView.Ada
 
         holder.itemView.tvMoreInfo.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, MovieDetailsActivity::class.java)
-            intent.putExtra(KEY_MOVIE_ID,movies.get(position).id)
+            intent.putExtra(KEY_MOVIE_ID,movies.get(position).id.toString())
             activity.startActivity(intent)
         })
 

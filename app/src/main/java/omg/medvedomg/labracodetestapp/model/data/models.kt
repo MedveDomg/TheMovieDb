@@ -50,6 +50,10 @@ data class Movie(
         val overview: String?,
         @SerializedName("release_date")
         val release_date: String?,
+        @SerializedName("budget")
+        val budget: String?,
+        @SerializedName("homepage")
+        val link: String?,
 //        @SerializedName("release_date")
         var categories: String?
 )

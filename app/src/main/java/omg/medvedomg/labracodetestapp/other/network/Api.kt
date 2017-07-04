@@ -3,6 +3,7 @@ package omg.medvedomg.labracodetestapp.other.network
 import io.reactivex.Observable
 import omg.medvedomg.labracodetestapp.model.data.CategoriesOfMoviesResponse
 import omg.medvedomg.labracodetestapp.model.data.ListOfPopularMoviesResponse
+import omg.medvedomg.labracodetestapp.model.data.Movie
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -18,4 +19,7 @@ interface Api {
 
     @GET("genre/movie/list")
     fun getCategoriesOfMoviesResponse(@Query("api_key") apiKey: String = "73ca768a64e4fb7f37e044d22a437a93"): Observable<CategoriesOfMoviesResponse>
+
+    @GET("movie/{id_movie}")
+    fun getMovieDetailsResponse(@Path("id_movie") idEvent:String?, @Query("api_key") apiKey: String = "73ca768a64e4fb7f37e044d22a437a93"): Observable<Movie>
 }

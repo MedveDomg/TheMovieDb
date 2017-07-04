@@ -11,24 +11,12 @@ import omg.medvedomg.labracodetestapp.view.viewInterface.ListOfMoviesView
 /**
  * Created by medvedomg on 04.07.17.
  */
-class ListOfMoviesPresenter(var listOfMoviesView: ListOfMoviesView, private var api: Api) {
+class ListOfMoviesPresenter(var listOfMoviesView: ListOfMoviesView, private var api: Api) : Presenter{
 
     private val apiManager by lazy {   ApiCommunicateManager(this,api)}
 
     fun getListOfMovies() {
-
-
         //ask server to get some movies
-//        api.getPopularMoviesResponse("73ca768a64e4fb7f37e044d22a437a93","1")
-//                .subscribeOn(Schedulers.io())
-//                .map { t ->
-//                    t.movies
-//                }
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(Consumer {
-//                    //send list of movies to activity
-//                    listOfMoviesView.setMovies(it)
-//                })
         apiManager.getListOfMoviesFromServer()
     }
 
