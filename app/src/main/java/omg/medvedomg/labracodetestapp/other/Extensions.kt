@@ -28,3 +28,4 @@ fun ImageView.loadImg(imageUrl: String) {
                 .error(R.mipmap.ic_launcher).into(this)
     }
 }
+

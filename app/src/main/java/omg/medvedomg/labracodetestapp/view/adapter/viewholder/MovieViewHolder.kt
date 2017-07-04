@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_item.view.*
 import omg.medvedomg.labracodetestapp.R
 import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.other.DateParserUtil
 import omg.medvedomg.labracodetestapp.other.inflate
 import omg.medvedomg.labracodetestapp.other.loadImg
 
@@ -17,7 +18,7 @@ class MovieViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflat
         tvTitle.text = item.title
         tvScore.text = item.voteAverage.toString()
         ivPoster.loadImg(item.posterPath.toString())
-        tvYear.text = item.release_date
+        tvYear.text = DateParserUtil.parseDate(item.release_date)
         tvDescription.text = item.overview
         tvMoreInfo.setOnClickListener(View.OnClickListener { println("click") })
     }
