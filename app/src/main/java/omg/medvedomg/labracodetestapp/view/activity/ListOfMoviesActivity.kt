@@ -19,7 +19,7 @@ class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
     private val api = NetworkUtil.api
 
     private val presenter by lazy { ListOfMoviesPresenter(this, api)}
-    private val adapterMovies by lazy { ListOfMoviesAdapter()}
+    private val adapterMovies by lazy { ListOfMoviesAdapter(this)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
