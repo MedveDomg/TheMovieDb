@@ -1,4 +1,4 @@
-package omg.medvedomg.labracodetestapp.view.viewInterface
+package omg.medvedomg.labracodetestapp.view.view
 
 
 /**

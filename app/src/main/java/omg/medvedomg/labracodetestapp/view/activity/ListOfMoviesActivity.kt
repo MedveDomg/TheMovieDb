@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_list_of_movies.*
 import omg.medvedomg.labracodetestapp.R
-import omg.medvedomg.labracodetestapp.model.ApiCommunicateManager
 import omg.medvedomg.labracodetestapp.model.data.Movie
-import omg.medvedomg.labracodetestapp.other.network.Api
 import omg.medvedomg.labracodetestapp.other.network.NetworkUtil
 import omg.medvedomg.labracodetestapp.presenter.ListOfMoviesPresenter
 import omg.medvedomg.labracodetestapp.view.adapter.ListOfMoviesAdapter
-import omg.medvedomg.labracodetestapp.view.viewInterface.ListOfMoviesView
+import omg.medvedomg.labracodetestapp.view.view.ListOfMoviesView
+import org.jetbrains.anko.toast
 
 class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
 
@@ -25,6 +24,7 @@ class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_of_movies)
 
+        //setup recyclerview
         rvListOfMovies.apply {
             setHasFixedSize(true)
             val linearLayoutManager = LinearLayoutManager(context)
@@ -32,13 +32,15 @@ class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {
             rvListOfMovies.adapter = adapterMovies
         }
 
-        presenter.getListOfMovies()
-        
+        //ask present to get some movies
+        if (NetworkUtil.isNetworkConnected(this)) {
+            presenter.getListOfMovies()
+        } else {
+            toast(getString(R.string.check_your_internet_connection))
+        }
+
     }
 
-    override fun startMovieDetailsActivity() {
-
-    }
 
     override fun setMovies(movies: List<Movie>) {
         adapterMovies.loadMovies(movies)

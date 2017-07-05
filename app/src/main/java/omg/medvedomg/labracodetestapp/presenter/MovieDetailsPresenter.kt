@@ -3,8 +3,7 @@ package omg.medvedomg.labracodetestapp.presenter
 import omg.medvedomg.labracodetestapp.model.ApiCommunicateManager
 import omg.medvedomg.labracodetestapp.model.data.Movie
 import omg.medvedomg.labracodetestapp.other.network.Api
-import omg.medvedomg.labracodetestapp.view.viewInterface.ListOfMoviesView
-import omg.medvedomg.labracodetestapp.view.viewInterface.MovieDetailsView
+import omg.medvedomg.labracodetestapp.view.view.MovieDetailsView
 
 /**
  * Created by medvedomg on 05.07.17.
@@ -19,6 +18,7 @@ class MovieDetailsPresenter(var movieDetailsView: MovieDetailsView, private var 
     }
 
     fun setMovie(movie: Movie) {
+        //send movie to activity
         movieDetailsView.setMovie(movie)
     }
 

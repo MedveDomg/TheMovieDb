@@ -4,4 +4,6 @@
     <string name="more_info">More Info</string>
     <string name="year">Year: %s</string>
     <string name="budget">Budget: %s</string>
+    <string name="url_base">https://api.themoviedb.org/3/</string>
+    <string name="check_your_internet_connection">Check your internet connection</string>
 </resources>

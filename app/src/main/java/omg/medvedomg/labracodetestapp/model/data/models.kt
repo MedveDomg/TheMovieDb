@@ -1,14 +1,13 @@
 package omg.medvedomg.labracodetestapp.model.data
 
-//import com.fasterxml.jackson.annotation.JsonIgnore
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-//import com.fasterxml.jackson.annotation.JsonProperty
 import com.google.gson.annotations.SerializedName
 
 /**
  * Created by medvedomg on 04.07.17.
  */
-//@JsonIgnoreProperties(ignoreUnknown=true)
+
+//all models are situated in this class
+
 data class ListOfPopularMoviesResponse(
         @SerializedName("page")
         val page: Int?,
@@ -20,7 +19,6 @@ data class ListOfPopularMoviesResponse(
         var movies: List<Movie>
 )
 
-//@JsonIgnoreProperties(ignoreUnknown=true)
 data class Movie(
         @SerializedName("vote_count")
         val voteCount: Int?,
@@ -54,17 +52,14 @@ data class Movie(
         val budget: String?,
         @SerializedName("homepage")
         val link: String?,
-//        @SerializedName("release_date")
         var categories: String?
 )
 
-//@JsonIgnoreProperties(ignoreUnknown=true)
 data class CategoriesOfMoviesResponse(
         @SerializedName("genres")
         var categories: List<Category>
 )
 
-//@JsonIgnoreProperties(ignoreUnknown=true)
 data class Category(
         @SerializedName("id")
         val id: Int?,

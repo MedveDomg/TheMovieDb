@@ -11,10 +11,12 @@ import omg.medvedomg.labracodetestapp.R
 /**
  * Created by medvedomg on 04.07.17.
  */
+//hack for easier inflating in viewholder
 fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 }
 
+//make easier loading image from string
 fun ImageView.loadImg(imageUrl: String) {
     if (TextUtils.isEmpty(imageUrl)) {
         Picasso.with(context)

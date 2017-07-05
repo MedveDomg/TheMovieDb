@@ -14,7 +14,7 @@ import omg.medvedomg.labracodetestapp.other.loadImg
  */
 class MovieViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.movie_item)) {
 
-
+    //bind all values to views
     fun bind(item: Movie) = with(itemView) {
         tvTitle.text = item.title
         tvScore.text = item.voteAverage.toString()

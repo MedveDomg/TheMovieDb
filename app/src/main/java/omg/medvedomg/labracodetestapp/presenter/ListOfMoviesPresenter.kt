@@ -1,12 +1,9 @@
 package omg.medvedomg.labracodetestapp.presenter
 
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
-import io.reactivex.schedulers.Schedulers
 import omg.medvedomg.labracodetestapp.model.ApiCommunicateManager
 import omg.medvedomg.labracodetestapp.model.data.Movie
 import omg.medvedomg.labracodetestapp.other.network.Api
-import omg.medvedomg.labracodetestapp.view.viewInterface.ListOfMoviesView
+import omg.medvedomg.labracodetestapp.view.view.ListOfMoviesView
 
 /**
  * Created by medvedomg on 04.07.17.
@@ -21,6 +18,7 @@ class ListOfMoviesPresenter(var listOfMoviesView: ListOfMoviesView, private var 
     }
 
     fun setListOfMovies(movies: List<Movie>) {
+        //send movies to activity
         listOfMoviesView.setMovies(movies)
     }
 }

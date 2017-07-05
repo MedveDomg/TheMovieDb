@@ -8,7 +8,8 @@ import omg.medvedomg.labracodetestapp.other.DateParserUtil
 import omg.medvedomg.labracodetestapp.other.loadImg
 import omg.medvedomg.labracodetestapp.other.network.NetworkUtil
 import omg.medvedomg.labracodetestapp.presenter.MovieDetailsPresenter
-import omg.medvedomg.labracodetestapp.view.viewInterface.MovieDetailsView
+import omg.medvedomg.labracodetestapp.view.view.MovieDetailsView
+import org.jetbrains.anko.toast
 
 class MovieDetailsActivity : AppCompatActivity(), MovieDetailsView {
 
@@ -22,12 +23,20 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
-        println(intent.getStringExtra(KEY_MOVIE_ID))
-
-        presenter.getMovieDetails(intent.getStringExtra(KEY_MOVIE_ID))
+        /*
+        receive id of movie from movie list
+        and ask presenter to load info from server
+        about this movie
+         */
+        if (NetworkUtil.isNetworkConnected(this)) {
+            presenter.getMovieDetails(intent.getStringExtra(KEY_MOVIE_ID))
+        } else {
+            toast(getString(R.string.check_your_internet_connection))
+        }
 
     }
 
+    //set movie values
     override fun setMovie(movie: omg.medvedomg.labracodetestapp.model.data.Movie) {
         tvTitle.text = movie.title
         ivPoster.loadImg(movie.posterPath.toString())
@@ -35,7 +44,7 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsView {
         tvBudget.text = String.format(resources.getString(R.string.budget),movie.budget)
         tvLink.text = movie.link
         tvOverview.text = movie.overview
-
     }
+
 
 }

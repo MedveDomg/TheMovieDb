@@ -3,6 +3,7 @@ package omg.medvedomg.labracodetestapp.model
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
@@ -16,11 +17,14 @@ import omg.medvedomg.labracodetestapp.presenter.Presenter
 /**
  * Created by medvedomg on 04.07.17.
  */
+
+//manager for loading data from server
 class ApiCommunicateManager(val presenter: Presenter, val api: Api) {
 
 
     fun getListOfMoviesFromServer() {
-        api.getPopularMoviesResponse()
+
+         api.getPopularMoviesResponse()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(Consumer {
@@ -28,7 +32,7 @@ class ApiCommunicateManager(val presenter: Presenter, val api: Api) {
                     var movies = it.movies
 
 
-                    //transform int id to string
+                    //transform int id of category to string and set it to movie
                     api.getCategoriesOfMoviesResponse()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
@@ -46,11 +50,6 @@ class ApiCommunicateManager(val presenter: Presenter, val api: Api) {
                                     }
                                 }
 
-
-                                movies.forEach {
-                                    println("at the end: " + it.categories)
-                                }
-
                                 (presenter as ListOfMoviesPresenter).setListOfMovies(movies)
                             })
                 })
@@ -62,29 +61,7 @@ class ApiCommunicateManager(val presenter: Presenter, val api: Api) {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(Consumer {
-
-                    var movie = it
-
-                    api.getCategoriesOfMoviesResponse()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(Consumer {
-                                var categories = it.categories
-                                    var fullCategory = ""
-                                if (movie.genreIds != null) {
-                                    for (index2 in 0..movie.genreIds.size - 1) {
-                                        for (index3 in 0..categories.size - 1) {
-                                            if (movie.genreIds.get(index2) == categories.get(index3).id) {
-                                                fullCategory += categories.get(index3).name.plus(" ")
-                                                movie.categories = fullCategory
-                                            }
-                                        }
-                                    }
-                                }
-
-                            })
-
-                    (presenter as MovieDetailsPresenter).setMovie(movie)
+                    (presenter as MovieDetailsPresenter).setMovie(it)
                 })
     }
 

@@ -1,4 +1,4 @@
-package omg.medvedomg.labracodetestapp.view.viewInterface
+package omg.medvedomg.labracodetestapp.view.view
 
 import omg.medvedomg.labracodetestapp.model.data.Movie
 
@@ -8,7 +8,5 @@ import omg.medvedomg.labracodetestapp.model.data.Movie
 interface ListOfMoviesView {
 
     fun setMovies(movies: List<Movie>)
-
-    fun startMovieDetailsActivity()
 
 }
