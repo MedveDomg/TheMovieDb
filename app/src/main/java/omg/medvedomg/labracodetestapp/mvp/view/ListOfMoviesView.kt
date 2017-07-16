@@ -1,6 +1,6 @@
-package omg.medvedomg.labracodetestapp.view.view
+package omg.medvedomg.labracodetestapp.mvp.view
 
-import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.mvp.model.Movie
 
 /**
  * Created by medvedomg on 04.07.17.

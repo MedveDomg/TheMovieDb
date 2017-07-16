@@ -1,14 +1,15 @@
-package omg.medvedomg.labracodetestapp.view.activity
+package omg.medvedomg.labracodetestapp.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_movie_details.*
 import omg.medvedomg.labracodetestapp.R
+import omg.medvedomg.labracodetestapp.mvp.model.Movie
 import omg.medvedomg.labracodetestapp.other.DateParserUtil
 import omg.medvedomg.labracodetestapp.other.loadImg
 import omg.medvedomg.labracodetestapp.other.network.NetworkUtil
-import omg.medvedomg.labracodetestapp.presenter.MovieDetailsPresenter
-import omg.medvedomg.labracodetestapp.view.view.MovieDetailsView
+import omg.medvedomg.labracodetestapp.mvp.presenter.MovieDetailsPresenter
+import omg.medvedomg.labracodetestapp.mvp.view.MovieDetailsView
 import org.jetbrains.anko.toast
 
 class MovieDetailsActivity : AppCompatActivity(), MovieDetailsView {
@@ -37,7 +38,7 @@ class MovieDetailsActivity : AppCompatActivity(), MovieDetailsView {
     }
 
     //set movie values
-    override fun setMovie(movie: omg.medvedomg.labracodetestapp.model.data.Movie) {
+    override fun setMovie(movie: Movie) {
         tvTitle.text = movie.title
         ivPoster.loadImg(movie.posterPath.toString())
         tvYear.text = String.format(resources.getString(R.string.year),DateParserUtil.parseDate(movie.release_date))

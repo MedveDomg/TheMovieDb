@@ -1,4 +1,4 @@
-package omg.medvedomg.labracodetestapp.presenter
+package omg.medvedomg.labracodetestapp.mvp.presenter
 
 /**
  * Created by medvedomg on 05.07.17.

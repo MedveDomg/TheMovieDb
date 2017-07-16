@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activity.ListOfMoviesActivity"
+            android:name=".ui.activity.ListOfMoviesActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.MovieDetailsActivity"
+            android:name=".ui.activity.MovieDetailsActivity"
             android:screenOrientation="portrait"/>
     </application>
 

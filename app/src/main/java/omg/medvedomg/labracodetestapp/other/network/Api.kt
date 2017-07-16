@@ -1,9 +1,9 @@
 package omg.medvedomg.labracodetestapp.other.network
 
 import io.reactivex.Observable
-import omg.medvedomg.labracodetestapp.model.data.CategoriesOfMoviesResponse
-import omg.medvedomg.labracodetestapp.model.data.ListOfPopularMoviesResponse
-import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.mvp.model.CategoriesOfMoviesResponse
+import omg.medvedomg.labracodetestapp.mvp.model.ListOfPopularMoviesResponse
+import omg.medvedomg.labracodetestapp.mvp.model.Movie
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

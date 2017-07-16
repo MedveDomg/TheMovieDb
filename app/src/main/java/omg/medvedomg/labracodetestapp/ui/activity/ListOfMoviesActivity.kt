@@ -1,15 +1,15 @@
-package omg.medvedomg.labracodetestapp.view.activity
+package omg.medvedomg.labracodetestapp.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_list_of_movies.*
 import omg.medvedomg.labracodetestapp.R
-import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.mvp.model.Movie
 import omg.medvedomg.labracodetestapp.other.network.NetworkUtil
-import omg.medvedomg.labracodetestapp.presenter.ListOfMoviesPresenter
-import omg.medvedomg.labracodetestapp.view.adapter.ListOfMoviesAdapter
-import omg.medvedomg.labracodetestapp.view.view.ListOfMoviesView
+import omg.medvedomg.labracodetestapp.mvp.presenter.ListOfMoviesPresenter
+import omg.medvedomg.labracodetestapp.ui.adapter.ListOfMoviesAdapter
+import omg.medvedomg.labracodetestapp.mvp.view.ListOfMoviesView
 import org.jetbrains.anko.toast
 
 class ListOfMoviesActivity : AppCompatActivity(), ListOfMoviesView {

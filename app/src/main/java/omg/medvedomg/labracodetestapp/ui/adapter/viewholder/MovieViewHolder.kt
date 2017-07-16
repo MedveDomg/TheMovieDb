@@ -1,10 +1,10 @@
-package omg.medvedomg.labracodetestapp.view.adapter.viewholder
+package omg.medvedomg.labracodetestapp.ui.adapter.viewholder
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_item.view.*
 import omg.medvedomg.labracodetestapp.R
-import omg.medvedomg.labracodetestapp.model.data.Movie
+import omg.medvedomg.labracodetestapp.mvp.model.Movie
 import omg.medvedomg.labracodetestapp.other.DateParserUtil
 import omg.medvedomg.labracodetestapp.other.inflate
 import omg.medvedomg.labracodetestapp.other.loadImg

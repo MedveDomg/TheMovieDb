@@ -1,18 +1,12 @@
-package omg.medvedomg.labracodetestapp.model
+package omg.medvedomg.labracodetestapp.other
 
-import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import omg.medvedomg.labracodetestapp.model.data.ListOfPopularMoviesResponse
-import omg.medvedomg.labracodetestapp.model.data.Movie
 import omg.medvedomg.labracodetestapp.other.network.Api
-import omg.medvedomg.labracodetestapp.presenter.ListOfMoviesPresenter
-import omg.medvedomg.labracodetestapp.presenter.MovieDetailsPresenter
-import omg.medvedomg.labracodetestapp.presenter.Presenter
+import omg.medvedomg.labracodetestapp.mvp.presenter.ListOfMoviesPresenter
+import omg.medvedomg.labracodetestapp.mvp.presenter.MovieDetailsPresenter
+import omg.medvedomg.labracodetestapp.mvp.presenter.Presenter
 
 /**
  * Created by medvedomg on 04.07.17.

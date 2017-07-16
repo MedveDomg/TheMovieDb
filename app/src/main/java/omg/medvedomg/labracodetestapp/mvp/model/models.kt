@@ -1,4 +1,4 @@
-package omg.medvedomg.labracodetestapp.model.data
+package omg.medvedomg.labracodetestapp.mvp.model
 
 import com.google.gson.annotations.SerializedName
 
