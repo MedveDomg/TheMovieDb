@@ -41,6 +41,11 @@ Used technologies:
 <p align="center">
 5)RxJava 2
 </p>
+
+<p align="center">
+6)Dagger 2
+</p>
+
 <p align="center">
 <a href="https://ibb.co/irmbkF"><img src="https://preview.ibb.co/cZP7sv/Screenshot_20170705_111138.png" alt="Screenshot_20170705_111138" border="0"></a>
 </p>
