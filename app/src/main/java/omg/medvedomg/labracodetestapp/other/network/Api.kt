@@ -22,4 +22,5 @@ interface Api {
 
     @GET("movie/{id_movie}")
     fun getMovieDetailsResponse(@Path("id_movie") idEvent:String?, @Query("api_key") apiKey: String = "73ca768a64e4fb7f37e044d22a437a93"): Observable<Movie>
+
 }

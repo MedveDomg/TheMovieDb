@@ -1,5 +1,6 @@
 package omg.medvedomg.labracodetestapp.mvp.view
 
+import android.support.v7.app.AppCompatActivity
 import omg.medvedomg.labracodetestapp.mvp.model.Movie
 
 /**

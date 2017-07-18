@@ -1,5 +1,8 @@
 package omg.medvedomg.labracodetestapp.mvp.presenter
 
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import omg.medvedomg.labracodetestapp.other.ApiCommunicateManager
 import omg.medvedomg.labracodetestapp.mvp.model.Movie
 import omg.medvedomg.labracodetestapp.other.network.Api
@@ -10,11 +13,14 @@ import omg.medvedomg.labracodetestapp.mvp.view.MovieDetailsView
  */
 class MovieDetailsPresenter(var movieDetailsView: MovieDetailsView, private var api: Api) : Presenter{
 
-    private val apiManager by lazy { ApiCommunicateManager(this, api) }
-
     fun getMovieDetails(idMovie: String?) {
         //ask server to get some movies
-        apiManager.getMovieDetails(idMovie)
+        api.getMovieDetailsResponse(idEvent = idMovie)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(Consumer {
+                    setMovie(it)
+                })
     }
 
     fun setMovie(movie: Movie) {
